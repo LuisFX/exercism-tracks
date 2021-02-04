@@ -1,7 +1,7 @@
 module Tests exposing (tests)
 
 import Expect
-import Test exposing (Test, describe, skip, test)
+import Test exposing (Test, describe, test)
 import Transpose exposing (transpose)
 
 
