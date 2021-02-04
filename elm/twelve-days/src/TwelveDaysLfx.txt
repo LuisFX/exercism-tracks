@@ -1,0 +1,29 @@
+module TwelveDaysLfx exposing (recite)
+
+recite : Int -> Int -> List String
+recite start stop =
+    let 
+        part1 = "On the "
+        part2 = "day of Christmas my true love gave to me:"
+        verseList = 
+            [
+            {dayNum = 1, dayStr = "first", ending = "a Partridge in a Pear Tree."}
+            , { dayNum = 2, dayStr = "second", ending = "two Turtle Doves,"}
+            , { dayNum = 3, dayStr = "third", ending = "three French Hens,"}
+            ]
+
+        concatEnding lastVerse =
+            List.map (\ a -> a.ending) verseList
+            |> List.take lastVerse
+            |> List.reverse
+            |> List.foldl (\ a b -> 
+                if a /= "" then 
+                    a ++ "and " ++ b
+                else
+                    a ++ b
+            ) ""          
+            
+    in
+        verseList
+        |> List.filter (\ a -> (List.member a.dayNum (List.range start stop)))
+        |> List.map (\ a -> part1 ++ a.dayStr ++ part2 ++ (concatEnding a.dayNum) ++ ".")
