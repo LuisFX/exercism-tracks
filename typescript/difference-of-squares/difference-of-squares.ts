@@ -19,14 +19,3 @@ class Squares {
 
 export default Squares
 
-const squares = new Squares(5)
-
-console.log(squares.squareOfSum)
-console.log(squares.squareOfSum === 225)
-
-console.log(squares.sumOfSquares)
-console.log(squares.sumOfSquares === 55)
-
-console.log(squares.difference)
-console.log(squares.difference === 170)
-
